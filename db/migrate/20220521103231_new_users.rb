@@ -6,7 +6,9 @@ class NewUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :password_digest
       t.string :gender
-      t.string :birthday
+      t.date :birthday
+
+      t.timestamps
     end
 
   end
