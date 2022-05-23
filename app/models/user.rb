@@ -1,0 +1,52 @@
+class User < ApplicationRecord
+
+    validates :email, uniqueness: true
+
+    has_secure_password
+
+    has_many :authored_posts,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Post
+
+    has_many :comments,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Comment
+
+    #Assertive Friendships 
+    has_many :assertive_friendships,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Friendship
+
+
+    #Passive Friendships
+    has_many :passive_friendships,
+        primary_key: :id,
+        foreign_key: :friend_id,
+        class_name: :Friendship
+
+    has_many :friends,
+        through: :assertive_friendships,
+        source: :friend
+
+    has_many :likes,
+        primary_key: :id,
+        foreign_key: :liker_id,
+        class_name: :Like
+
+    has_many :liked_posts,
+        through: :likes,
+        source: :post
+
+    has_many :wall_posts,
+        primary_key: :id,
+        foreign_key: :recipient_id,
+        class_name: :Post
+    
+    has_one_attached :profile_picture
+    has_one_attached :cover_photo
+
+
+end
