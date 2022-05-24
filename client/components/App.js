@@ -41,7 +41,22 @@ function App(){
     //Execute if user is logged in.
     return (
         <>
-        
+            <NavBar user={user} setUser={setUser}/>
+            <Switch>
+                <Route exact path='/'>
+                    <HomeFeed user={user}/>
+                </Route>
+                <Route exact path='/home_feed'>
+                    <HomeFeed user={user}/>
+                </Route>
+                <Route exact path='/users/:id'>
+                    <UserProfile user={user} setUser={setUser}/>
+                </Route>
+            </Switch>
+            <Footer user={user}/>
         </>
-    )
+    );
 }
+
+export default App;
+
