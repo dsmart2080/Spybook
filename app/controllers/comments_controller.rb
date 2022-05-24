@@ -31,5 +31,5 @@ class Api::CommentsController < ApplicationController
         params.permit(:author_id, :post_id, :body)
     end
 
-    
+
 end
