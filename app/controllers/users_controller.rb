@@ -42,4 +42,22 @@ class Api::UsersController < ApplicationController
         render json: user, include: ['wall_posts', 'wall_posts.comments','wall_posts.comments.author', 'wall_posts.likes', 'wall_posts.author', 'assertive_friendships']
     end
 
+    private
+
+    def user_params
+        params.permit(
+            :first_name,
+            :last_name,
+            :email,
+            :password,
+            :password_confirmation,
+            :gender,
+            :birthday,
+            :profile_picture,
+            :cover_photo
+        )
+    end
+
+
 end
+
