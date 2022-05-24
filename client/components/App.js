@@ -11,7 +11,8 @@ import Footer from './Footer';
 function App(){
     const [user, setUser] = userState(null);
 
-    // calls to login
+    //calls to login
+    //Handles the automatic login
     useEffect(() => {
         fetch('/api/auto_login')
         .then(response =>{
@@ -21,10 +22,26 @@ function App(){
         });
     },[]);
 
-    //If no user is logged in 
+    //Execute this if no user is logged in.
     if (!user){
         return(
-            
-        )
+            <>
+            <NavBar user={user} setUser = {setUser}/>
+            <Switch>
+                <Route exact path='/'>
+                    <SIgnup setUser={setUser}/>
+                </Route>
+            </Switch>
+            <Footer user={user}/>
+            </>
+        );
     }
+
+
+    //Execute if user is logged in.
+    return (
+        <>
+        
+        </>
+    )
 }
