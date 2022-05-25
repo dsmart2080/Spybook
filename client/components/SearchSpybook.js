@@ -35,9 +35,6 @@ function SearchSpybook(){
                 displayedUsers={displayUsers}
                 searchString={searchString}
             />
-            
-            
-            </input>
         </div>
     )
 }
