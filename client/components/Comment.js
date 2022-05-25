@@ -50,6 +50,19 @@ return (
                     {`${postsComment.author.first_name}`}
                 </Link>
             </h2>
+            <p>{postsComment.body}</p>
+            <footer className='comment-footer'>
+                <ul className='comment-footer-tools'>
+                    {postsComment.author_id === user.id ? 
+                    <>
+                    <li><button onClick={deleteCommentHandler}>Delete</button></li>
+                    <li><button onClick={editCommentHandler}>Exit</button></li>
+                    </>
+                    : null}
+                </ul>
+            </footer>
         </div>
     </article>
-)
+);
+
+}
