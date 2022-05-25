@@ -26,8 +26,8 @@ function SearchResultsContainer({displayedUsers, searchString}){
         <>
             {searchString === '' ?
                 null 
-                : <ul className='search-results'>'
-                    {displayUsersArrJSX}
+                : <ul className='search-results'>
+                    {displayedUsersArrJSX}
                 </ul>}
         </>
     );
