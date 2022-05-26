@@ -39,7 +39,7 @@ function Signup({setUser}){
                 email: signupFormData.email,
                 password: signupFormData.password,
                 gender: signupFormData.gender,
-                birthday: `${signupFormData.birthdayYear} - ${signupFormData.birthdayMonth}-${signupFormData.birthdayDay}`
+                birthday: `${signupFormData.birthdayYear} - ${signupFormData.birthdayMonth} - ${signupFormData.birthdayDay}`
             })
         })
         .then(response => {
@@ -47,12 +47,49 @@ function Signup({setUser}){
                 response.json().then(jsonData => {
                     setUser(jsonData);
                     history.push('/home_feed')
-                })
+                });
             }
-        })
-
-
+        });
     }
+
+    function generateMonthOptionTags(){
+        const months = ['January','February','March', 'April','May',
+        'June','July','August','September','October','November','December'
+        ];
+
+        return months.map(month => {
+            return (
+                <option key={month} value={month}> {month}</option>
+            );
+        });
+    }
+
+    function generateDayOptionTags(){
+        const days = [];
+
+        for (var x = 1; x<= 31; x++)
+        {
+            days.push(x);
+        }
+
+        return days.map(day => {
+            return(
+                <option key={day} value={day} > {day}</option>
+            );
+        });
+    }
+
+
+
+    function generateYearOptionTags(){
+        const dateObj = new Date();
+        const currentYear = dateObj.getFullYear();
+        const years = [];
+    }
+
+
+
+
 
 
 
