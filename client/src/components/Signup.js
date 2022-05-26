@@ -112,16 +112,65 @@ function Signup({setUser}){
 
 
             <section className='right'>
+                <h2>Sign Up</h2>
+                <h2>It's free and anyone can join</h2>
+                <form onSubmit={submitSignupFormDataHandler} className='signup-form'>
+                    <div>
+                        <label>First Name</label>
+                        <input type='text' name='first_name' value={signupFOrmData.first_name} onChange={changeSignupFormDataHandler}/>
+                    </div>
 
-            </section>
+                    <div>
+                        <label>Last Name</label>
+                        <input type='text' name='second_name' value={signupFormData.last_name} onChange={changeSIgnupFormDataHandler}/>
+                    </div>
+
+                    <div>
+                        <label>Your Email:</label>
+                        <input type='text' name='email' value={signupFormData.email} onChange={changeSignupFormDataHandler}/>
+                    </div> 
+
+                    <div>
+                        <label>New Password</label>
+                        <input type='password' name= 'password' value={signupFormData.password} onChange={changeSIgnupFOrmDataHandler}/>
+                    </div>
+
+
+                    <div>
+                        <label>I am:</label>
+                        <select name='gender' onChange={changeSignupFormDataHandler}>
+                            <option>Select Sex:</option>
+                            <option value='Female'>Female</option>
+                            <option value='Male'>Male</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Birthday</label>
+                        <select name='birthdayMonth' on Change={changeSignupFormDataHandler}>
+                            <option>Month:</option>
+                            {generateMonthOptionTags()}
+                        </select>
+                        <select name='birthdayDay' onChange={changeSignupFormDataHandler}>
+                            <option>Day:</option>
+                            {generateDayOptionTags()}
+                        </select>
+                        <select name='birthdayYear' onChange={changeSignupFormDataHandler}>
+                            <option>Year:</option>
+                            {generateYearOptionTags()}
+                        </select>
+                    </div>
+
+                    <small>By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy.</small>
+                    <button>Sign Up</button>
+                </form>
+                </section>
         </main>
-    )
-
-
-
-
-
-
+    );
 
 
 }
+
+
+export default Signup;
+
