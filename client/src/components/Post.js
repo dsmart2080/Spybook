@@ -62,12 +62,45 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
                 toggleLIkePostHandler={toggleLikePostHandler}
                 editPostHandler={editPostHandler}
                 postsCommentsArrJSX={postsCommentsArrJSX}
-                
-                >
-
-            </FormToEditPost>
-        )
+                setPostsCommentsWrapperToAddNewCommment = {setPostsCommentsWrapperToAddNewComment}
+                />
+        );
     }
+    
+
+    function setPostsCommentsWrapperToAddNewComment(newComment){
+        setPostsComments([...postsComments, newComment]);
+    }
+
+
+    function deletePostHandler(){
+        fetch(`/api/posts/${post.id}`,{
+            method: 'DELETE'
+        })
+        .then(response =>{
+            if (response.ok){
+                response.json().then(post => {
+                    if (!setFriendsAuthoredPostsWrapperToRemoveAuthoredPost)
+                    {
+                        setArbitraryUserWrapperToRemoveWallPost(post);
+                    }
+                    else {
+                        setFriendsAuthoredPostsWrapperToRemoveAuthoredPost(post);
+                    }
+                });
+            }
+        });
+    }
+
+
+
+
+    function editPostHandler(){
+        setIsEditingPost(!isEditingPost);
+    }
+
+
+
     
 
     
