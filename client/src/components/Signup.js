@@ -103,7 +103,17 @@ function Signup({setUser}){
 
     return (
         <main className='content-logged-out'>
-            
+            <div className='signup'></div>
+
+            <section className='left'>
+            <h2>Spyb👀k brings people from all around the world in your life.</h2>
+            <img src={worldMap} atl=''/>
+            </section>
+
+
+            <section className='right'>
+
+            </section>
         </main>
     )
 
