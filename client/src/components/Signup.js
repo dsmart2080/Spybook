@@ -85,7 +85,27 @@ function Signup({setUser}){
         const dateObj = new Date();
         const currentYear = dateObj.getFullYear();
         const years = [];
+
+
+        for (let x = currentYear; x >= (currentYear - 100); x--)
+        {
+            years.push(x);
+        }
+
+        return years.map(year => {
+            return (
+                <option key={year} value={year} > {year}</option>
+            );
+        });
     }
+
+
+
+    return (
+        <main className='content-logged-out'>
+            
+        </main>
+    )
 
 
 
