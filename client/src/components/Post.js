@@ -180,15 +180,20 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
                 : null}
                 </ul>
                 </footer>
-                <p>{}</p>
-            }
+                <p>{postsLikes.length > 1 ? `${postsLikes.length} Likes`: (postsLikes.length === 1 ? '1 Like' : null)}</p> {/* ternary within a ternary*/}
+                
+                <div className='comments'>
+                    {postsCommentsArrJSX}
+                </div>
+                <FormToSubmitComment post={post} user={user} setPostsCommentsWrapperToAddNewComment={setPostsCommentsWrapperToAddNewComment}/>
+                </div>
+            </article>
+            );       
+}
 
-
-
-
-            </div>
-        </article>
-    )
+    export default Post;
+        
+    
             
         
 
