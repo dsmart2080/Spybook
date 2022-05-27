@@ -190,18 +190,8 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
             </article>
             );       
 }
-
-    export default Post;
+export default Post;
         
     
             
-        
-
-
-
-
-
-
-
     
-}
