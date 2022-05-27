@@ -147,15 +147,49 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
 
 
     return (
-        <article className='post'></article>
-        <Link to={`/users/${post.author_id}`} title={post.author.first_name} className='thumb'>
-            <img src={!post.author.profile_picture_url ? blankProfilePicture : post.author.profile_picture_url}
-                alt=''
-            />
+        <article className='post'>
+            <Link to={`/users/${post.author_id}`} title={post.author.first_author} className='thumb'>
+                <img 
+                    src={!post.author.profile_picture_url ? blankProfilePicture : post.author.profile_picture_url}
+                    alt=''
+                />
             </Link>
-        </h2>
+            
+            <div className='post-body'>
+                <h2>
+                    <Link to={ `/users/${post.author.id}`}>
+                        {`${post.author.first_name} ${post.author.last_name}`}
+                    </Link>
+                </h2>
 
-        <p>{post.body}</p>
+                <p>{post.body}</p>
+                {post.post_photo_url ? 
+                    <img src={post.post_photo_url} alt=''/>
+                : null}
+
+                <footer className='post-footer'>
+                <ul className='post-footer-tools'>
+                <li><button onClick={toggelLikePostHandler}>{isPostLiked ? 'Liked' : 'Not liked'}</button></li>
+
+                <li>Comment</li>
+                {post.author_id === user.id ? 
+                    <>
+                    <li><DeleteIcon/><button onClick={deletePostHandler}>Delete</button></li>  
+                    <li><button onClick={editPostHandler}>Edit</button></li>
+                    </>
+                : null}
+                </ul>
+                </footer>
+                <p>{}</p>
+            }
+
+
+
+
+            </div>
+        </article>
+    )
+            
         
 
 
