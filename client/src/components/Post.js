@@ -99,9 +99,70 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
         setIsEditingPost(!isEditingPost);
     }
 
+    function toggleLikePostHandler(event){
+        event.preventDefault();
 
 
-    
+        if(!isPostLiked){
+            //Create like post if post is not already liked.
+            fetch('/api/likes', {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify({
+                    liker_id: user.id,
+                    post_id: post.id
+                })
+            })
+            
+            .then(response => {
+                if (response.ok){
+                    response.json().then(newLike => setPostsLikes([...postsLikes, newLike]));
+                }
+            });
+        } else {
+            //delete like if post is already liked.
+            let likeID;
+            for (let like of postsLikes){
+                if (like.liker_id ===  user.id && like.post_id === post.id)
+                {
+                    likeID = like.id;
+                }
+            }
+
+            fetch(`/api/likes/${likeID}`, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok){
+                    response.json().then(deleteLike => setPostsLikes(
+                        postsLikes.filter(postLike => postsLikes.id !== deleteLike.id)
+                    ));
+                }
+            });
+        }
+    }
+
+
+    return (
+        <article className='post'></article>
+        <Link to={`/users/${post.author_id}`} title={post.author.first_name} className='thumb'>
+            <img src={!post.author.profile_picture_url ? blankProfilePicture : post.author.profile_picture_url}
+                alt=''
+            />
+            </Link>
+        </h2>
+
+        <p>{post.body}</p>
+        
+
+
+
+
+
+
 
     
 }
