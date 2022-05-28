@@ -28,14 +28,14 @@ function UserProfile({user, setUser}){
         return(
             <main className='content'>
                 <section className='content-main' sytle={{margin: '0 auto', textAlign:'center'}}>
-                    Loading...
+                    Loading....
                 </section>
             </main>
         );
     }
 
 
-
+    //Using this component to delete wall post using a UserWrapper.
     function setArbitraryUserWrapperToRemoveWallPost(deletedWallPost){
         setArbitraryUser({
             ...arbitraryUser,
@@ -113,7 +113,7 @@ function UserProfile({user, setUser}){
 
 
     function addFriendshipHandler(){
-        fetch('/api/friendships',{
+        fetch('/api/friendships', {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
@@ -130,16 +130,12 @@ function UserProfile({user, setUser}){
                 response.json().then(newFriendship => setUser({
                     ...user,
                     assertive_friendships: [
-                        ...user.assertive_friendships,
-                        newFriendship
+                    ...user.assertive_friendships,
+                    newFriendship
                     ]
                 }));
             }
         });
-
-
-
-
 
         fetch('/api/friendships',{
             method: 'POST',
@@ -148,7 +144,7 @@ function UserProfile({user, setUser}){
             },
             body: JSON.stringify({
                 user_id: arbitraryUser.id,
-                friend_id:user.id
+                friend_id: user.id
             })
         })
         .then(response => {
@@ -156,8 +152,8 @@ function UserProfile({user, setUser}){
                 response.json().then(newFriendship => setArbitraryUser({
                     ...arbitraryUser,
                     assertive_friendships: [
-                        ...arbitraryUser.assertive_friendships,
-                        newFriendship // appends new friendship
+                    ...arbitraryUser.assertive_friendships,
+                    newFriendship // appends new friendship
                     ]
                 }));
             }
@@ -201,9 +197,9 @@ function UserProfile({user, setUser}){
         })
         .then(response => {
             if (response.ok){
-                response.json().then(deleteFriendship => setArbitraryUser({
-                    ...arbitraryUser,
-                    assertive_friendships: arbitraryUser.assertive_friendships.filter(assertiveFriendship=> assertiveFriendship.id !== deletedFriendship.id)
+                response.json().then(deletedFriendship => setArbitraryUser({
+                ...arbitraryUser,
+                assertive_friendships: arbitraryUser.assertive_friendships.filter(assertiveFriendship => assertiveFriendship.id !== deletedFriendship.id)
                 }));
             }
         });
@@ -230,20 +226,50 @@ function UserProfile({user, setUser}){
         });
     }
 
+
+    //SubmitCoverPhotoHandler
+    function submitCoverPhotoHandler(event){
+        event.preventDefault();
+
+        //Don't nest the key under `user` because strong params is not required in the backend
+        const coverPhoto = new FormData();
+        if (event.target.cover_photo.files.length > 0){
+            coverPhoto.append('cover_photo', event.target.cover_photo.files[0], event.target.cover_photo.value);
+        }
+
+        fetch(`/api/users/${arbitraryUser.id}/attach_new_cover_photo`,{
+            method: 'POST',
+            body: coverPhoto
+        })
+        .then(response => response.json())
+        .then(user => {
+            setArbitraryUser(user);
+            setUser(user);
+        });
+
+    }
+
+
+
+
+
+
     return (
         <main className='content'>
             <header className='content-header' style={{background: `url(${!arbitraryUser.cover_photo_url ? blankCoverPhoto : arbitraryUser.cover_photo_url})`}}>
                 <h1>{`${arbitraryUser.first_name} ${arbitraryUser.last_name}`}</h1>
-                arbitraryUser.id === user.id ?
-                    <form onSubmit ={submitCoverPhotoHandler}>
+                {arbitraryUser.id === user.id ?
+                    <form onSubmit = {submitCoverPhotoHandler}>
+                        {/* Image preview */}
                         <input type='file' name='cover_photo'/>
                         <button className='content-header-btn'>Add Cover Photo</button>
                     </form> 
-                    : (user.assertive_friendships.map(assertiveFriendship => assertiveFriendship.friend.id).includes(arbitraryUser.id) ? <button onClick = {deleteFriendshipHandler}
-                    className = 'content-header-btn'>Friends</button> : <button onClick={addFriendshipHandler}
+                    : (user.assertive_friendships.map(assertiveFriendship => assertiveFriendship.friend.id).includes(arbitraryUser.id) ? <button onClick = {deleteFriendshipHandler} className = 'content-header-btn'>Friends</button> : <button onClick={addFriendshipHandler}
+                    className='content-header-btn'>Add Friend</button>)} {/* ternary nested statement*/}
             </header>
 
-            <section className='content-sidebar'></section>
+            
+            <section className='content-sidebar'>
             <img
                 src={!arbitraryUser.profile_picture_url ? blankProfilePicture : arbitraryUser.profile_picture_url}
                 alt=''
@@ -255,9 +281,35 @@ function UserProfile({user, setUser}){
                     Getting to hack people's data for ads and money.
                 </p>
             </div>
-        </main>
-    )
+            <ul className='profile-nav'>
+                <li><a href=''>WALL</a></li>
+                <li><a href=''>ABOUT</a></li>
+                <li><a href=''>FRIENDS</a></li>
+                <li><a href=''>PHOTOS</a></li>
+            </ul>
 
+            <ul className='profile-friends'>
+                {arbitraryUsersFriendsArrJSX}
+            </ul>
+            </section>
+
+            <section className='content-main'>
+                {arbitraryUser.id === user.id? 
+                <form onSubmit={submitProfilePictureHandler}>
+                
+                    <input type='file' name='profile_picture'/>
+                    <button>Update Profile Picture</button>
+                </form> 
+                : null}
+                {((arbitraryUser.id !== user.id) && (!arbitraryUser.assertive_friendships.map(assertiveFriendship => assertiveFriendship.friend_id).includes(user.id))) ?
+                null 
+                <FormToSubmitPost user={user} setArbitraryUserWrapperToAddNewWallPost = {setArbitraryUserWrapperToAddNewWallPost} arbitraryUser={arbitraryUser} />}
+                <div className='posts'>
+                    {arbitraryUsersWallPostsArrJSX}
+                </div>
+            </section>
+        </main>
+    );
 }
 
 export default UserProfile;
