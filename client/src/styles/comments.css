@@ -8,3 +8,26 @@
     margin: 20px 0 0 0;
     padding: 20px 0 0 0;
 }
+
+.comment-body{
+    margin: 0 0 0 20px;
+    width: 460px;
+}
+
+.comment-body > h2 {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 20px 0;
+}
+
+
+.comment-body > p {
+    margin: 0 0 20px 0;
+}
+
+.comment-footer-tools{
+    display: flex;
+    justify-content: space-between;
+}
+
+
