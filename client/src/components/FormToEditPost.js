@@ -60,7 +60,7 @@ function FormToEditPost({post, setArbitraryUserWrapperToUpdateWallPost, setIsEdi
             </Link>
             <div className='post-body'>
                 <h2>
-                    <Link to={`/users/${post.author.id}`}>
+                    <Link to={`/users/${post.author.id}`}> 
                         {`${post.author.first_name} ${post.author.last_name}`}
                     </Link>
                 </h2>
