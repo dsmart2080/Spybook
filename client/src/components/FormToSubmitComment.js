@@ -47,13 +47,13 @@ function FormToSubmitComment({post,user,setPostsCommentsWrapperToAddNewComment})
                         name='body'
                         placeholder='write a comment...'
                         value={commentFormData.body}
-                        
-                        
-                    >
-
+                        onChange={changeCommentFormDataHandler}
+                    />
+                </div>
             </fieldset>
-
         </form>
-
     );
 }
+
+export default FormToSubmitComment;
+
