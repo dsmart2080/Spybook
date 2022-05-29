@@ -301,9 +301,13 @@ function UserProfile({user, setUser}){
                     <button>Update Profile Picture</button>
                 </form> 
                 : null}
-                {((arbitraryUser.id !== user.id) && (!arbitraryUser.assertive_friendships.map(assertiveFriendship => assertiveFriendship.friend_id).includes(user.id))) ?
-                null 
-                <FormToSubmitPost user={user} setArbitraryUserWrapperToAddNewWallPost = {setArbitraryUserWrapperToAddNewWallPost} arbitraryUser={arbitraryUser} />}
+                {
+                ((arbitraryUser.id !== user.id) && 
+                (!arbitraryUser.assertive_friendships.map(assertiveFriendship => assertiveFriendship.friend_id).includes(user.id))) ?  
+                null :
+                <FormToSubmitPost user={user} setArbitraryUserWrapperToAddNewWallPost = {setArbitraryUserWrapperToAddNewWallPost}
+                arbitraryUser={arbitraryUser} />
+                }
                 <div className='posts'>
                     {arbitraryUsersWallPostsArrJSX}
                 </div>
