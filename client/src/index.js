@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './components/App';
 import {BrowserRouter} from 'react-router-dom';
 
@@ -21,13 +20,13 @@ import './styles/comments.css';
 import './styles/FormToEditComment.css';
 import './styles/FormToSubmitComment.css';
 import './styles/HomeFeed.css';
-import './styles/SearchLookbook.css';
+import './styles/SearchSpybook.css';
 import './styles/SearchResultsContainer.css';
 
-
-root.render(
+ReactDOM.render(
   <BrowserRouter>
     <App />
-  </BrowserRouter>
+  </BrowserRouter>,
+  document.getElementById('root')
 );
 
