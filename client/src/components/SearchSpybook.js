@@ -38,3 +38,5 @@ function SearchSpybook(){
         </div>
     )
 }
+
+export default SearchSpybook;

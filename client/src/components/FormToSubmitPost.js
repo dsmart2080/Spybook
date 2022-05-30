@@ -95,3 +95,7 @@ function FormToSubmitPost({user, setFriendsAuthoredPostsWrapperToAddNewAuthoredP
         </form>
     );
 }
+
+
+export default FormToSubmitPost;
+
