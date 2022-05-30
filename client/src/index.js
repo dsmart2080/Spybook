@@ -25,7 +25,6 @@ import './styles/SearchLookbook.css';
 import './styles/SearchResultsContainer.css';
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <App />
