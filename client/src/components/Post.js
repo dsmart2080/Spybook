@@ -1,9 +1,9 @@
 import Comment from './Comment';
 import {Link} from 'react-router-dom';
-import FormToSubmitComment from './FormToSumitComment';
+import FormToSubmitComment from './FormToSubmitComment';
 import {useState} from 'react';
 import FormToEditPost from './FormToEditPost';
-import blankProfilePicture from '../images/blank_profile_pciture.png';
+import blankProfilePicture from '../images/blank_profile_picture.png';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
