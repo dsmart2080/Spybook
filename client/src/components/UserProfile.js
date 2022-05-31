@@ -3,7 +3,7 @@ import {useParams, Link} from 'react-router-dom';
 import Post from './Post';
 import FormToSubmitPost from './FormToSubmitPost';
 import blankCoverPhoto from '../images/blank_cover_photo.png';
-import blankProfilePicture from '../images/blank_profile_picture';
+import blankProfilePicture from '../images/blank_profile_picture.png';
 
 
 function UserProfile({user, setUser}){
