@@ -117,12 +117,12 @@ function Signup({setUser}){
                 <form onSubmit={submitSignupFormDataHandler} className='signup-form'>
                     <div>
                         <label>First Name</label>
-                        <input type='text' name='first_name' value={signupFOrmData.first_name} onChange={changeSignupFormDataHandler}/>
+                        <input type='text' name='first_name' value={signupFormData.first_name} onChange={changeSignupFormDataHandler}/>
                     </div>
 
                     <div>
                         <label>Last Name</label>
-                        <input type='text' name='second_name' value={signupFormData.last_name} onChange={changeSIgnupFormDataHandler}/>
+                        <input type='text' name='second_name' value={signupFormData.last_name} onChange={changeSignupFormDataHandler}/>
                     </div>
 
                     <div>
@@ -132,7 +132,7 @@ function Signup({setUser}){
 
                     <div>
                         <label>New Password</label>
-                        <input type='password' name= 'password' value={signupFormData.password} onChange={changeSIgnupFOrmDataHandler}/>
+                        <input type='password' name= 'password' value={signupFormData.password} onChange={changeSignupFormDataHandler}/>
                     </div>
 
 
