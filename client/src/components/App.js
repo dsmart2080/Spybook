@@ -15,9 +15,9 @@ function App(){
     //Handles the automatic login
     useEffect(() => {
         fetch('/api/auto_login')
-        .then(response =>{
+        .then(response => {
             if (response.ok){
-                response.json().then(jsonData=> setUser(jsonData));
+                response.json().then(jsonData => setUser(jsonData));
             }
         });
     },[]);
