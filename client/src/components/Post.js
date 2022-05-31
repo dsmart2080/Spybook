@@ -15,7 +15,6 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
     const [postsLikes, setPostsLikes] = useState(post.likes);
     const isPostLiked = postsLikes.map(like => like.liker_id).includes(user.id);
 
-
     function setPostsCommentsWrapperToRemoveComment(deletedComment){
         setPostsComments(postsComments.filter(
             comment => comment.id !== deletedComment.id
@@ -63,7 +62,7 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
                 editPostHandler={editPostHandler}
                 postsCommentsArrJSX={postsCommentsArrJSX}
                 setPostsCommentsWrapperToAddNewCommment = {setPostsCommentsWrapperToAddNewComment}
-                />
+            />
         );
     }
     
@@ -169,7 +168,7 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
 
                 <footer className='post-footer'>
                 <ul className='post-footer-tools'>
-                <li><button onClick={toggelLikePostHandler}>{isPostLiked ? 'Liked' : 'Not liked'}</button></li>
+                <li><button onClick={toggleLikePostHandler}>{isPostLiked ? 'Liked' : 'Not liked'}</button></li>
 
                 <li>Comment</li>
                 {post.author_id === user.id ? 
@@ -190,6 +189,7 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
             </article>
             );       
 }
+
 export default Post;
         
     
