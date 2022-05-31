@@ -9,7 +9,7 @@ import Footer from './Footer';
 
 
 function App(){
-    const [user, setUser] = userState(null);
+    const [user, setUser] = useState(null);
 
     //calls to login
     //Handles the automatic login
@@ -29,7 +29,7 @@ function App(){
             <NavBar user={user} setUser = {setUser}/>
             <Switch>
                 <Route exact path='/'>
-                    <SIgnup setUser={setUser}/>
+                    <Signup setUser={setUser}/>
                 </Route>
             </Switch>
             <Footer user={user}/>

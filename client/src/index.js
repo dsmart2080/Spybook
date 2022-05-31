@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import App from './components/App';
 import {BrowserRouter} from 'react-router-dom';
 
@@ -23,7 +23,7 @@ import './styles/HomeFeed.css';
 import './styles/SearchSpybook.css';
 import './styles/SearchResultsContainer.css';
 
-ReactDOM.render(
+ReactDOM.render (
   <BrowserRouter>
     <App />
   </BrowserRouter>,

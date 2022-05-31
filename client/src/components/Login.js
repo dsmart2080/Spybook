@@ -79,7 +79,7 @@ function Login({setUser}){
                         type='text'
                         name='email'
                         value={loginFormData.email}
-                        onChange={changeLoginFOrmDataHandler}
+                        onChange={changeLoginFormDataHandler}
                     />
                 </div>
 
