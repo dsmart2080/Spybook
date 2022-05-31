@@ -7,7 +7,7 @@ import blankProfilePicture from '../images/blank_profile_picture.png';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
-function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAuthroedPostsWrapper}){
+function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAuthoredPostsWrapperToRemoveAuthoredPost, setArbitraryUserWrapperToUpdateWallPost, setFriendsAuthoredPostsWrapperToUpdateAuthoredPost}){
     
     const [postsComments, setPostsComments] = useState(post.comments);
     const [isEditingPost, setIsEdidtingPost] = useState(false);
@@ -53,7 +53,7 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
             <FormToEditPost 
                 post={post}
                 setArbitraryUserWrapperToUpdateWallPost={setArbitraryUserWrapperToUpdateWallPost}
-                setIsEditingPost={setIsEditingPost}
+                setIsEditingPost = {setIsEditingPost}
                 setFriendsAuthoredPostsWrapperToUpdateAuthoredPost = {setFriendsAuthoredPostsWrapperToUpdateAuthoredPost}
                 user = {user}
                 postsLikes = {postsLikes}
