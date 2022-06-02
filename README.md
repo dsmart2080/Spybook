@@ -13,7 +13,7 @@ Things you may want to cover:
 Program runs on ruby 2.5.1p57
 
 * System dependencies
-System depends on Ruby, Rails, Javascript Node.js runtime environment, Amazon S3.
+System depends on Ruby, Rails, Javascript Node.js runtime environment, Amazon S3, PostgreSQL, HTML, and CSS.
 
 * Configuration
 
@@ -28,6 +28,11 @@ $rails db:create:status
 
 * Database initialization
 #Create SQL tables for data
+#Run this commmend to create new models
+$rails g models <modelNameInPluralForm>
+
+#Use this to run a database migration to create the models web application
+$rails db:migrate
 
 * How to run the test suite
 #Run the test suite using Ruby's built in Rspec.
