@@ -1,4 +1,18 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  first_name      :string
+#  last_name       :string
+#  email           :string
+#  password_digest :string
+#  gender          :string
+#  birthday        :date
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  friends_list    :text             default("")
+#
 
 # This model initially had no columns defined. If you add columns to the
 # model remove the '{}' from the fixture names and add the columns immediately

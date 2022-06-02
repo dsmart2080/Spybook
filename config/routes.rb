@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     get '/home_feed', to: 'posts#show_home_feed'
     resources :posts, only: [:create, :destroy, :update]
     #sessions
-    post '/login', to: 'session#create'
-    delete '/logout', to: 'session#destroy'
-    get '/auto_login', to: 'session#auto_login'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
+    get '/auto_login', to: 'sessions#auto_login'
 
     #users
     post '/signup', to: 'users#create'
