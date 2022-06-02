@@ -1,68 +1,64 @@
-//HomeFeed
-
 import {useState, useEffect} from 'react';
 import Post from './Post';
 import FormToSubmitPost from './FormToSubmitPost';
 
+// container component for logged-in user's friends' authored posts
+function HomeFeed({user}) {
 
-//Enclosure component for logged-in user's friends' authored posts.
-function HomeFeed({user}){
+  const [friendsAuthoredPosts, setFriendsAuthoredPosts] = useState([]);
 
-    const [friendsAuthoredPosts, setFriendsAuthoredPosts] = useState([]);
+  useEffect(() => {
+    fetch('/api/home_feed')
+    .then(response => response.json())
+    .then(posts => setFriendsAuthoredPosts(posts));
+  }, []);
 
-    useEffect(()=> {
-        fetch('/api/home_feed')
-        .then(posts => setFriendsAuthoredPosts(post));
-    }, []);
+  function setFriendsAuthoredPostsWrapperToRemoveAuthoredPost(deletedAuthoredPost) {
+    setFriendsAuthoredPosts(friendsAuthoredPosts.filter(authoredPost => authoredPost.id !== deletedAuthoredPost.id)); // filter out the deleted authored post
+  }
 
-    function setFriendsAuthoredPostsWrapperToRemoveAuthoredPost(deleteAuthoredPost){
-        setFriendsAuthoredPosts(friendsAuthoredPost.filter(authorPost => deleteAuthoredPost.id !== deletedAuthoredPost.id));
+  function setFriendsAuthoredPostsWrapperToUpdateAuthoredPost(updatedAuthoredPost) {
+    setFriendsAuthoredPosts(friendsAuthoredPosts.map(authoredPost => {
+      if (authoredPost.id === updatedAuthoredPost.id) {
+        return updatedAuthoredPost; // replace with the updated authored post
+      } else {
+        return authoredPost;
+      }
+    }));
+  }
+
+  const friendsAuthoredPostsArrJSX = friendsAuthoredPosts.map(
+    friendsAuthoredPost => {
+      return (
+        <Post
+          key={friendsAuthoredPost.id}
+          post={friendsAuthoredPost}
+          user={user}
+          setFriendsAuthoredPostsWrapperToRemoveAuthoredPost={setFriendsAuthoredPostsWrapperToRemoveAuthoredPost}
+          setFriendsAuthoredPostsWrapperToUpdateAuthoredPost={setFriendsAuthoredPostsWrapperToUpdateAuthoredPost}
+        />
+      );
     }
+  );
 
-    function setFriendsAuthoredPostsWrapperToUpdateAuthoredPost(updatedAuthoredPost){
-        setFriendsAuthoredPosts(friendsAuthoredPfosts.map(authoredPost => {
-            if (authoredPost.id === updatedAuthoredPost.id)
-            {
-                return updatedAuthoredPost;
-            } else {
-                return authoredPost;
-            }
-            //give a replace with the updated authored post.
-        }));
-    }
+  /*
+  once a new authored post is submitted from the home feed page,
+  the new authored post is immediately appended to the top of the home feed page
+  */
+  function setFriendsAuthoredPostsWrapperToAddNewAuthoredPost(newAuthoredPost) {
+    setFriendsAuthoredPosts([newAuthoredPost, ...friendsAuthoredPosts]);
+  }
 
-
-    const friendsAuthoredPostsArrJSX = friendAuthoredPosts.map(
-        friendsAuthoredPost => {
-            return (
-            <Post
-                key={friendsAuthoredPost.id}
-                post={friendsAuthoredPost}
-                user={user}
-                setFriendsAuthoredPostsWrapperToRemoveAuthoredPost={setFriendsAuthoredPostsWrapperToRemoveAuthoredPost}
-                setFriendsAuthoredPostsWrapperToUpdateAuthoredPost={setFriendsAuthoredPostWrapperToUpdateAuthoredPost}
-            />
-            );
-        }
-    );
-
-
-
-    function setFriendsAuthoredPostsWrapperToAddNewAuthoredPost(newAuthoredPost){
-        setFriendsAuthoredPosts([newAuthoredPost, ...friendAuthoredPost]);
-    }
-
-
-    return (
-        <main className='content'>
-            <section className='content-main home-feed'>
-            <FormToSubmitPost user={user} setFriendsAuthoredPostsWrapperToAddNewAuthoredPost={setFriendsAuthoredPostsWrapperToAddNewAuthoredPost}/>
-            <div className='posts'>
-                {friendsAuthoredPostsArrJSX}
-            </div>
-            </section>
-        </main>
-    );
+  return (
+    <main className='content'>
+      <section className='content-main home-feed'>
+        <FormToSubmitPost user={user} setFriendsAuthoredPostsWrapperToAddNewAuthoredPost={setFriendsAuthoredPostsWrapperToAddNewAuthoredPost} />
+        <div className='posts'>
+          {friendsAuthoredPostsArrJSX}
+        </div>
+      </section>
+    </main>
+  );
 }
 
 export default HomeFeed;

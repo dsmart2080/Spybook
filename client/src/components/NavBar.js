@@ -1,6 +1,6 @@
 import Login from './Login';
 import {Link, useHistory} from 'react-router-dom';
-import SearchLookbook from './SearchSpybook';
+import SearchSpybook from './SearchSpybook';
 
 function NavBar({user, setUser})
 {

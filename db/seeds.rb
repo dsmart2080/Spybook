@@ -28,9 +28,9 @@ puts '🌱🌱🌱 Seeding friendships... 🌱🌱🌱'
 
 # create demo user
 User.create(
-  first_name: 'Mark',
-  last_name: 'Zuckerberg',
-  email: 'zuckerberg@fb.com',
+  first_name: 'Elon',
+  last_name: 'Musk',
+  email: 'musk@fb.com',
   password: 'password',
   gender: 'Male',
   birthday: Date.new(1984, 5, 14)

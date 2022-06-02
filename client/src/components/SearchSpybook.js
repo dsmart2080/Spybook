@@ -3,25 +3,23 @@ import SearchResultsContainer from './SearchResultsContainer';
 
 //Populating data from using Search
 
-function SearchSpybook(){
+function SearchSpybook() 
+{
     const [allUsers, setAllUsers] = useState([]);
     const [searchString, setSearchString] = useState('');
 
     useEffect(()=> {
         fetch('/api/users')
-        .then(response => setAllUsers(users));
+        .then(response => response.json())
+        .then(users => setAllUsers(users));
     }, []);
-
-
     const displayUsers = allUsers.filter(
         user => `${user.first_name} ${user.last_name}`.toLowerCase().includes(searchString.toLowerCase())
     );
 
-
     function changeSearchStringHandler(event){
         setSearchString(event.target.value);
     }
-
 
     return (
         <div className='search-spybook'>

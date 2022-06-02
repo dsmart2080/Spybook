@@ -3,7 +3,8 @@ import {useHistory} from 'react-router-dom';
 import worldMap from '../images/world_map.png';
 
 
-function Signup({setUser}){
+function Signup({setUser})
+{
 
     const [signupFormData, setSignupFormData] = useState({
         first_name: '',
@@ -46,7 +47,7 @@ function Signup({setUser}){
             if(response.ok){
                 response.json().then(jsonData => {
                     setUser(jsonData);
-                    history.push('/home_feed')
+                    history.push('/home_feed');
                 });
             }
         });
@@ -54,8 +55,7 @@ function Signup({setUser}){
 
     function generateMonthOptionTags(){
         const months = ['January','February','March', 'April','May',
-        'June','July','August','September','October','November','December'
-        ];
+        'June','July','August','September','October','November','December'];
 
         return months.map(month => {
             return (
@@ -66,12 +66,10 @@ function Signup({setUser}){
 
     function generateDayOptionTags(){
         const days = [];
-
         for (var x = 1; x<= 31; x++)
         {
             days.push(x);
         }
-
         return days.map(day => {
             return(
                 <option key={day} value={day} > {day}</option>
@@ -79,13 +77,10 @@ function Signup({setUser}){
         });
     }
 
-
-
     function generateYearOptionTags(){
         const dateObj = new Date();
         const currentYear = dateObj.getFullYear();
         const years = [];
-
 
         for (let x = currentYear; x >= (currentYear - 100); x--)
         {
@@ -103,14 +98,11 @@ function Signup({setUser}){
 
     return (
         <main className='content-logged-out'>
-            <div className='signup'></div>
-
+            <div className='signup'>
             <section className='left'>
             <h2>Spyb👀k brings people from all around the world in your life.</h2>
-            <img src={worldMap} atl=''/>
+            <img src={worldMap} alt=''/>
             </section>
-
-
             <section className='right'>
                 <h2>Sign Up</h2>
                 <h2>It's free and anyone can join</h2>
@@ -119,34 +111,30 @@ function Signup({setUser}){
                         <label>First Name</label>
                         <input type='text' name='first_name' value={signupFormData.first_name} onChange={changeSignupFormDataHandler}/>
                     </div>
-
                     <div>
                         <label>Last Name</label>
                         <input type='text' name='second_name' value={signupFormData.last_name} onChange={changeSignupFormDataHandler}/>
                     </div>
-
                     <div>
                         <label>Your Email:</label>
                         <input type='text' name='email' value={signupFormData.email} onChange={changeSignupFormDataHandler}/>
                     </div> 
-
                     <div>
                         <label>New Password</label>
                         <input type='password' name= 'password' value={signupFormData.password} onChange={changeSignupFormDataHandler}/>
                     </div>
 
-
                     <div>
                         <label>I am:</label>
                         <select name='gender' onChange={changeSignupFormDataHandler}>
                             <option>Select Sex:</option>
-                            <option value='Female'>Female</option>
                             <option value='Male'>Male</option>
+                            <option value='Female'>Female</option>
+                            <option value='other'>Other</option>
                         </select>
                     </div>
-
                     <div>
-                        <label>Birthday</label>
+                        <label>Birthday: </label>
                         <select name='birthdayMonth' on Change={changeSignupFormDataHandler}>
                             <option>Month:</option>
                             {generateMonthOptionTags()}
@@ -160,17 +148,14 @@ function Signup({setUser}){
                             {generateYearOptionTags()}
                         </select>
                     </div>
-
                     <small>By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy.</small>
                     <button>Sign Up</button>
                 </form>
                 </section>
+                </div>
         </main>
     );
-
-
 }
-
 
 export default Signup;
 
