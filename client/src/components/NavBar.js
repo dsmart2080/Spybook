@@ -2,6 +2,9 @@ import Login from './Login';
 import {Link, useHistory} from 'react-router-dom';
 import SearchSpybook from './SearchSpybook';
 
+//Helped with the NavBar
+//Designed the color with the NavBar
+
 function NavBar({user, setUser})
 {
     const history = useHistory();

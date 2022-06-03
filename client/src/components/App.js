@@ -7,7 +7,6 @@ import UserProfile from './UserProfile';
 import Footer from './Footer';
 
 
-
 function App(){
     const [user, setUser] = useState(null);
 
