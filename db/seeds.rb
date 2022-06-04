@@ -33,7 +33,7 @@ User.create(
   email: 'musk@fb.com',
   password: 'password',
   gender: 'Male',
-  birthday: Date.new(1984, 5, 14)
+  birthday: Date.new(2000, 1, 1)
 )
 
 # create 4 random users
