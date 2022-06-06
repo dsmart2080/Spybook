@@ -6,56 +6,52 @@ import HomeFeed from './HomeFeed';
 import UserProfile from './UserProfile';
 import Footer from './Footer';
 
+function App() {
+  const [user, setUser] = useState(null);
 
-function App(){
-    const [user, setUser] = useState(null);
+  // auto-login
+  useEffect(() => {
+    fetch('/api/auto_login')
+    .then(response => {
+      if (response.ok) {
+        response.json().then(jsonData => setUser(jsonData));
+      }
+    });
+  }, []);
 
-    //calls to login
-    //Handles the automatic login
-    useEffect(() => {
-        fetch('/api/auto_login')
-        .then(response => {
-            if (response.ok){
-                response.json().then(jsonData => setUser(jsonData));
-            }
-        });
-    },[]);
-
-    //Execute this if no user is logged in.
-    if (!user){
-        return(
-            <>
-            <NavBar user={user} setUser = {setUser}/>
-            <Switch>
-                <Route exact path='/'>
-                    <Signup setUser={setUser}/>
-                </Route>
-            </Switch>
-            <Footer user={user}/>
-            </>
-        );
-    }
-
-
-    //Execute if user is logged in.
+  // if no user is logged in
+  if (!user) {
     return (
-        <>
-            <NavBar user={user} setUser={setUser}/>
-            <Switch>
-                <Route exact path='/'>
-                    <HomeFeed user={user}/>
-                </Route>
-                <Route exact path='/home_feed'>
-                    <HomeFeed user={user}/>
-                </Route>
-                <Route exact path='/users/:id'>
-                    <UserProfile user={user} setUser={setUser}/>
-                </Route>
-            </Switch>
-            <Footer user={user}/>
-        </>
+      <>
+        <NavBar user={user} setUser={setUser} />
+        <Switch>
+          <Route exact path='/'>
+            <Signup setUser={setUser} />
+          </Route>
+        </Switch>
+        <Footer user={user} />
+      </>
     );
+  }
+
+  // if an user is logged in
+  return (
+    <>
+      <NavBar user={user} setUser={setUser} />
+      <Switch>
+        <Route exact path='/'>
+          <HomeFeed user={user} />
+        </Route>
+        <Route exact path='/home_feed'>
+          <HomeFeed user={user} />
+        </Route>
+        <Route exact path='/users/:id'>
+          <UserProfile user={user} setUser={setUser} />
+        </Route>
+      </Switch>
+      <Footer user={user} />
+    </>
+  );
 }
 
 export default App;
-

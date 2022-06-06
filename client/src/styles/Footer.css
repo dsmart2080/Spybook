@@ -1,62 +1,53 @@
-/* Case if user is logged in. */
+/* if no user is logged in */
 
 .footer-logged-out {
     width: 1100px;
     margin: 0 auto 50px auto;
     color: #aaa;
     font-size: 14px;
-}
-
-
-.footer-language {
+  }
+  
+  .footer-language {
     display: block;
     padding: 20px;
     padding-bottom: 10px;
-}
-
-
-.footer-logged-out > div {
+  }
+  
+  .footer-logged-out > div {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid #aaa;
-}
-
-
-.footer-copy-logged-out {
+  }
+  
+  .footer-copy-logged-out {
     display: block;
     padding: 20px;
     padding-top: 10px;
-}
-
-.footer-links-logged-out {
+  }
+  
+  .footer-links-logged-out {
     display: flex;
     padding: 20px;
     padding-top: 10px;
-}
-
-
-.footer-links-logged-out > li {
+  }
+  
+  .footer-links-logged-out > li {
     padding: 0 0 0 20px;
-}
-
-
-.footer-logged-out > li {
-    padding: 0 0 0 20px
-}
-
-.footer-logged-out a:hover {
+  }
+  
+  .footer-logged-out a:hover {
     color: #000;
-}
-
-
-.footer-tech-stack {
+  }
+  
+  .footer-tech-stack {
     display: block;
     padding: 20px;
     padding-top: 0;
-}
-
-
-.footer {
+  }
+  
+  /* if an user is logged in */
+  
+  .footer {
     display: flex;
     justify-content: space-between;
     width: 900px;
@@ -68,27 +59,22 @@
     border-top: 0;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-}
-
-.footer-copy{
+  }
+  
+  .footer-copy {
     display: block;
     padding: 20px;
-}
-
-
-.footer-links {
+  }
+  
+  .footer-links {
     display: flex;
     padding: 20px;
-}
-
-.footer-links > li {
+  }
+  
+  .footer-links > li {
     padding: 0 0 0 20px;
-}
-
-.footer a:hover {
+  }
+  
+  .footer a:hover {
     color: #000;
-}
-
-
-
-
+  }

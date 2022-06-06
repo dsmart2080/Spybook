@@ -2,10 +2,8 @@ import {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import worldMap from '../images/world_map.png';
 
-
 function Signup({setUser})
 {
-
     const [signupFormData, setSignupFormData] = useState({
         first_name: '',
         last_name: '',
@@ -28,7 +26,6 @@ function Signup({setUser})
 
     function submitSignupFormDataHandler(event) {
         event.preventDefault();
-
         fetch('/api/signup',{
             method: 'POST',
             headers: {
@@ -81,7 +78,6 @@ function Signup({setUser})
         const dateObj = new Date();
         const currentYear = dateObj.getFullYear();
         const years = [];
-
         for (let x = currentYear; x >= (currentYear - 100); x--)
         {
             years.push(x);
@@ -113,7 +109,7 @@ function Signup({setUser})
                     </div>
                     <div>
                         <label>Last Name</label>
-                        <input type='text' name='second_name' value={signupFormData.last_name} onChange={changeSignupFormDataHandler}/>
+                        <input type='text' name='last_name' value={signupFormData.last_name} onChange={changeSignupFormDataHandler}/>
                     </div>
                     <div>
                         <label>Your Email:</label>

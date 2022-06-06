@@ -1,39 +1,39 @@
-import {Link} from 'react-router-dom';
-import blankProfilePicture from '../images/blank_profile_picture.png';
+import {useState, useEffect} from 'react';
+import SearchResultsContainer from './SearchResultsContainer';
 
-function SearchResultsContainer({displayedUsers, searchString}){
+function SearchSpybook() {
 
-    const displayedUsersArrJSX = displayedUsers.map(user =>{
-        return (
-            <li key={user.id}>
-                <Link to={`/users/${user.id}`} title={user.first_name} className="thumb search-result-thumb">
-                    <img
-                        src={!user.profile_picture_url ? blankProfilePicture : user.profile_picture_url}
-                        alt=''
-                    />
-                </Link>
-                <h2>
-                    <Link to={`/users/${user.id}`}>
-                        {`${user.first_name} ${user.last_name}`}
-                    </Link>
-                </h2>
-            </li>
-        );
-    });
+  const [allUsers, setAllUsers] = useState([]);
+  const [searchString, setSearchString] = useState('');
 
+  useEffect(() => {
+    fetch('/api/users')
+    .then(response => response.json())
+    .then(users => setAllUsers(users));
+  }, []);
 
-    return (
-        <>
-            {searchString === '' ?
-                null 
-                : <ul className='search-results'>
-                    {displayedUsersArrJSX}
-                </ul>}
-        </>
-    );
+  const displayedUsers = allUsers.filter(
+    user => `${user.first_name} ${user.last_name}`.toLowerCase().includes(searchString.toLowerCase())
+  );
+
+  function changeSearchStringHandler(event) {
+    setSearchString(event.target.value);
+  }
+
+  return (
+    <div className='search-spybook'>
+      <input
+        type='search'
+        placeholder='Search Spyb👀k'
+        value={searchString}
+        onChange={changeSearchStringHandler}
+      />
+      <SearchResultsContainer
+        displayedUsers={displayedUsers}
+        searchString={searchString}
+      />
+    </div>
+  );
 }
 
-
-export default SearchResultsContainer;
-
-
+export default SearchSpybook;
