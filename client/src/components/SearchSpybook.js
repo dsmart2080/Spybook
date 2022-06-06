@@ -25,7 +25,7 @@ function SearchSpybook()
         <div className='search-spybook'>
             <input
             type='search'
-            placeholder='Search Spyb👀b'
+            placeholder='Search Spyb👀k'
             value={searchString}
             onChange={changeSearchStringHandler}
             />

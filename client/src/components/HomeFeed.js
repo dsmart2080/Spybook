@@ -26,7 +26,6 @@ function HomeFeed({user}) {
       }
     }));
   }
-//debugger;
 
   const friendsAuthoredPostsArrJSX = friendsAuthoredPosts.map(
     friendsAuthoredPost => {
@@ -62,4 +61,4 @@ function HomeFeed({user}) {
   );
 }
 
-export default HomeFeed; 
+export default HomeFeed;

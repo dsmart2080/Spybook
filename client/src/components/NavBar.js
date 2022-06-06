@@ -26,7 +26,7 @@ function NavBar({user, setUser}) {
         <nav className='header-nav-logged-out'>
           <h1 className='header-logo-logged-out'>
             <Link exact to='/'>
-              l👀kbook
+              Spyb👀k
             </Link>
           </h1>
           <Login setUser={setUser} />

@@ -16,12 +16,8 @@ gem 'puma', '~> 3.11'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# IMPORTANT 
-# Use Faker gem to create the fake users 
-gem 'faker'
-
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -36,7 +32,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'annotate'
-  
 end
 
 group :development do
@@ -51,3 +46,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "active_model_serializers", "~> 0.10.12"
+
+
+#Create Fake user accounts
+gem 'faker'
+
+#Create AWS S3 capability
+gem 'aws-sdk-s3'
