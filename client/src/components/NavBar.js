@@ -26,7 +26,7 @@ function NavBar({user, setUser}) {
         <nav className='header-nav-logged-out'>
           <h1 className='header-logo-logged-out'>
             <Link exact to='/'>
-              Spyb👀k
+              l👀kbook
             </Link>
           </h1>
           <Login setUser={setUser} />
@@ -41,7 +41,7 @@ function NavBar({user, setUser}) {
       <nav className='header-nav'>
         <h1 className='header-logo'>
           <Link exact to='/home_feed'>
-            Spyb👀k
+            l👀kbook
           </Link>
         </h1>
         <SearchSpybook />
