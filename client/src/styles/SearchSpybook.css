@@ -1,8 +1,8 @@
-.search-Spybook {
+.search-spybook {
   position: relative;
 }
 
-.search-Spybook > input {
+.search-spybook > input {
   display: block;
   background: #fff;
   border: 1px solid #ccc;
@@ -12,6 +12,6 @@
   color: rgb(0, 0, 0);
 }
 
-.search-Spybook > input:focus {
+.search-spybook > input:focus {
   border-color: rgb(40, 73, 125);
 }
