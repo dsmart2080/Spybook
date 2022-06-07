@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   namespace :api do 
     #likes
     resources :likes, only: [:create, :destroy]
+
     #posts
     get '/home_feed', to: 'posts#show_home_feed'
     resources :posts, only: [:create, :destroy, :update]
+    
     #sessions
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
