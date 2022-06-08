@@ -48,7 +48,7 @@ function Login({setUser}) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        email: 'markzuck@gmail.com',
+        email: 'JamesJani@gmail.com',
         password: 'password'
       })
     })

@@ -28,9 +28,9 @@ puts '🌱🌱🌱 Seeding friendships... 🌱🌱🌱'
 
 # create demo user
 User.create(
-  first_name: 'Mark',
-  last_name: 'Zuck',
-  email: 'markzuck@gmail.com',
+  first_name: 'James',
+  last_name: 'Jani',
+  email: 'JamesJani@gmail.com',
   password: 'password',
   gender: 'Male',
   birthday: Date.new(2000, 1, 1)
