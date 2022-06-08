@@ -11,9 +11,9 @@ function Footer({user}) {
             Lookbook &copy; 2022
           </small>
           <ul className='footer-links-logged-out'>
-            <li><a href='https://github.com/seanliyuxiang/lookbook-fb-clone' target='_blank'>GitHub</a></li>
-            <li><a href='https://www.linkedin.com/in/seanliyuxiang' target='_blank'>LinkedIn</a></li>
-            <li><a href='https://medium.com/@seanliyuxiang' target='_blank'>Medium</a></li>
+            <li><a href='https://github.com/dsmart2080/Spybook' target='_blank'>GitHub</a></li>
+            <li><a href='https://www.linkedin.com/in/dave-s-716ab841/' target='_blank'>LinkedIn</a></li>
+            
           </ul>
         </div>
         <small className='footer-tech-stack'>
@@ -28,12 +28,12 @@ function Footer({user}) {
   return (
     <footer className='footer'>
       <small className='footer-copy'>
-        Lookbook &copy; 2022
+        Spybook &copy; 2022
       </small>
       <ul className='footer-links'>
         <li><a href='https://github.com/dsmart2080/Spybook' target='_blank'>GitHub</a></li>
-        <li><a href='https://www.linkedin.com/in/dave-s-716ab841/' target='_blank'>LinkedIn</a></li>
-        <li><a href='https://medium.com/@seanliyuxiang' target='_blank'>Medium</a></li>
+        <li><a href='' target='_blank'>LinkedIn</a></li>
+        <li><a href='' target='_blank'>Medium</a></li>
       </ul>
     </footer>
   );

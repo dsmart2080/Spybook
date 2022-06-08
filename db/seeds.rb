@@ -28,15 +28,15 @@ puts '🌱🌱🌱 Seeding friendships... 🌱🌱🌱'
 
 # create demo user
 User.create(
-  first_name: 'E',
-  last_name: 'Musk',
-  email: 'musk@fb.com',
+  first_name: 'Mark',
+  last_name: 'Zuck',
+  email: 'markzuck@gmail.com',
   password: 'password',
   gender: 'Male',
   birthday: Date.new(2000, 1, 1)
 )
 
-# create 4 random users
+# create 10 random users
 10.times do
   User.create(
     first_name: Faker::Name.first_name,
@@ -48,9 +48,9 @@ User.create(
   )
 end
 
-# create 5 random posts on each user's wall with random authors
+# create 10 random posts on each user's wall with random authors
 User.all.each do |user|
-  5.times do
+  10.times do
     Post.create(
       author_id: User.all.map { |u| u.id }.sample,
       body: Faker::Quote.famous_last_words,
@@ -59,9 +59,9 @@ User.all.each do |user|
   end
 end
 
-# create 5 random comments for each post with random authors
+# create 10 random comments for each post with random authors
 Post.all.each do |post|
-  5.times do
+  10.times do
     Comment.create(
       author_id: User.all.map { |u| u.id }.sample,
       post_id: post.id,
