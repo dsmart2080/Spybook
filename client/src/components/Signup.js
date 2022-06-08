@@ -125,8 +125,9 @@ function Signup({setUser}) {
               <label>I am:</label>
               <select name='gender' onChange={changeSignupFormDataHandler}>
                 <option>Select Sex:</option>
-                <option value='Female'>Female</option>
                 <option value='Male'>Male</option>
+                <option value='Female'>Female</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div>
