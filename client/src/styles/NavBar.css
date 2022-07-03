@@ -74,3 +74,14 @@ body {
 .header-list button {
   padding: 10px 20px;
 }
+/* 
+@media (max-width:1500px )
+{
+   When width of screen is less than 1500px then display output.
+     make Navbar to dispear.
+  
+  .header{
+    display: none;
+
+  }
+}  */

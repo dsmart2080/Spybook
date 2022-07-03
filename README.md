@@ -34,6 +34,10 @@ $rails g models <modelNameInPluralForm>
 #Use this to run a database migration to create the models web application
 $rails db:migrate
 
+
+* HOW TO RUN THE APPLICATION:
+
+
 * How to run the test suite
 #Run the test suite using Ruby's built in Rspec.
 

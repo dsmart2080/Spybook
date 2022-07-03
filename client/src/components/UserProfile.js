@@ -4,6 +4,8 @@ import Post from './Post';
 import FormToSubmitPost from './FormToSubmitPost';
 import blankCoverPhoto from '../images/blank_cover_photo.png';
 import blankProfilePicture from '../images/blank_profile_picture.png';
+import CircularProgress from '@mui/material/CircularProgress';
+import Stack from '@mui/material/Stack';
 
 function UserProfile({user, setUser}) {
 
@@ -20,11 +22,19 @@ function UserProfile({user, setUser}) {
   }, [params.id]);
 
   // need this if-statement for `TypeError: Cannot read properties of null`
+  //Replace with material ui progerss circle
+  
   if (!arbitraryUser) {
     return (
       <main className='content'>
         <section className='content-main' style={{margin: '0 auto', textAlign: 'center'}}>
-          Loading...
+          <CircularProgress />
+          <Stack sx={{ color: 'pink.500' }} spacing={2} direction="row">
+            <CircularProgress color="secondary" />
+            <CircularProgress color="success" />
+            <CircularProgress color="inherit" />
+          </Stack>
+    
         </section>
       </main>
     );
