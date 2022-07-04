@@ -41,3 +41,10 @@
 .profile-nav a:hover {
   background: #eee;
 }
+
+
+
+/* Added spacing for the wall icon */
+.profile-nav svg {
+  margin-right: 10px;
+}

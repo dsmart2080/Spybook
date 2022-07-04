@@ -6,6 +6,8 @@ import blankCoverPhoto from '../images/blank_cover_photo.png';
 import blankProfilePicture from '../images/blank_profile_picture.png';
 import CircularProgress from '@mui/material/CircularProgress';
 import Stack from '@mui/material/Stack';
+import MessageSharpIcon from '@mui/icons-material/MessageSharp';
+
 
 function UserProfile({user, setUser}) {
 
@@ -267,7 +269,7 @@ function UserProfile({user, setUser}) {
           </p>
         </div>
         <ul className='profile-nav'>
-          <li><a href=''>Wall</a></li>
+          <li><a href=''><MessageSharpIcon/> Wall</a></li>
           <li><a href=''>About</a></li>
           <li><a href=''>Friends</a></li>
           <li><a href=''>Photos</a></li>
