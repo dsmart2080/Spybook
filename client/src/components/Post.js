@@ -5,6 +5,8 @@ import {useState} from 'react';
 import FormToEditPost from './FormToEditPost';
 import blankProfilePicture from '../images/blank_profile_picture.png';
 import DeleteIcon from '@mui/icons-material/Delete';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 
 function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAuthoredPostsWrapperToRemoveAuthoredPost, setArbitraryUserWrapperToUpdateWallPost, setFriendsAuthoredPostsWrapperToUpdateAuthoredPost}) {
 
@@ -151,7 +153,19 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
         : null}
         <footer className='post-footer'>
           <ul className='post-footer-tools'>
-            <li><button onClick={toggleLikePostHandler}>{isPostLiked ? 'Liked' : 'Not liked'}</button></li>
+            {isPostLiked ? 
+              <li>
+                <button onClick={toggleLikePostHandler} style={{ color: 'rgb(102,178,255)' }}>
+                  <ThumbUpIcon />
+                </button>
+              </li>
+              :
+              <li>
+                <button onClick ={toggleLikePostHandler}>
+                  <ThumbUpOffAltIcon />
+                </button> 
+              </li>
+            }
             <li>Comment</li>
             {post.author_id === user.id ?
               <>
