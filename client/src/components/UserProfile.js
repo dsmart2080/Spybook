@@ -7,7 +7,7 @@ import blankProfilePicture from '../images/blank_profile_picture.png';
 import CircularProgress from '@mui/material/CircularProgress';
 import Stack from '@mui/material/Stack';
 import MessageSharpIcon from '@mui/icons-material/MessageSharp';
-
+import HelpIcon from '@mui/icons-material/Help';
 
 function UserProfile({user, setUser}) {
 
@@ -30,13 +30,7 @@ function UserProfile({user, setUser}) {
     return (
       <main className='content'>
         <section className='content-main' style={{margin: '0 auto', textAlign: 'center'}}>
-          <CircularProgress />
-          <Stack sx={{ color: 'pink.500' }} spacing={2} direction="row">
-            <CircularProgress color="secondary" />
-            <CircularProgress color="success" />
-            <CircularProgress color="inherit" />
-          </Stack>
-    
+          <CircularProgress />    
         </section>
       </main>
     );
@@ -270,7 +264,7 @@ function UserProfile({user, setUser}) {
         </div>
         <ul className='profile-nav'>
           <li><a href=''><MessageSharpIcon/> Wall</a></li>
-          <li><a href=''>About</a></li>
+          <li><a href=''><HelpIcon/> About</a></li>
           <li><a href=''>Friends</a></li>
           <li><a href=''>Photos</a></li>
         </ul>
