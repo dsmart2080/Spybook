@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  birthday        :date
+#  email           :string
+#  first_name      :string
+#  friends_list    :text             default("")
+#  gender          :string
+#  last_name       :string
+#  password_digest :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class UserSerializer < ActiveModel::Serializer
   attributes(
     :id, :first_name, :last_name, :email, :gender,
