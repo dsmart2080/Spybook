@@ -9,6 +9,8 @@ import Stack from '@mui/material/Stack';
 import MessageSharpIcon from '@mui/icons-material/MessageSharp';
 import HelpIcon from '@mui/icons-material/Help';
 import PeopleIcon from '@mui/icons-material/People';
+import InstagramIcon from '@mui/icons-material/Instagram';
+
 
 
 function UserProfile({user, setUser}) {
@@ -268,7 +270,7 @@ function UserProfile({user, setUser}) {
           <li><a href=''><MessageSharpIcon/> Wall</a></li>
           <li><a href=''><HelpIcon/> About</a></li>
           <li><a href=''><PeopleIcon/> Friends</a></li>
-          <li><a href=''>Photos</a></li>
+          <li><a href=''><InstagramIcon/> Photos</a></li>
         </ul>
         <ul className='profile-friends'>
           {arbitraryUsersFriendsArrJSX}
