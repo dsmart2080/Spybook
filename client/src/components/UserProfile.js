@@ -285,8 +285,11 @@ function UserProfile({user, setUser}) {
             <input type='file' name='profile_picture' />
             <br></br>
             <button>Update Profile Picture</button>
+
+            <br></br>
             <br></br>
           </form>
+          
         : null}
         {((arbitraryUser.id !== user.id) && (!arbitraryUser.assertive_friendships.map(assertiveFriendship => assertiveFriendship.friend_id).includes(user.id))) ?
           null

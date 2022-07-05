@@ -2,11 +2,12 @@
 #
 # Table name: likes
 #
-#  id         :bigint           not null, primary key
-#  liker_id   :integer
-#  post_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :bigint           not null, primary key
+#  likeable_type :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  liker_id      :integer
+#  post_id       :integer
 #
 
 

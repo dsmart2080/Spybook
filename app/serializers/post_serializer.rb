@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id           :bigint           not null, primary key
+#  body         :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  author_id    :integer
+#  recipient_id :integer
+#
 class PostSerializer < ActiveModel::Serializer
   attributes(
     :id, :author_id, :author_full_name, :body, :created_at,
