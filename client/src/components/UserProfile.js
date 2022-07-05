@@ -8,6 +8,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Stack from '@mui/material/Stack';
 import MessageSharpIcon from '@mui/icons-material/MessageSharp';
 import HelpIcon from '@mui/icons-material/Help';
+import PeopleIcon from '@mui/icons-material/People';
+
 
 function UserProfile({user, setUser}) {
 
@@ -265,7 +267,7 @@ function UserProfile({user, setUser}) {
         <ul className='profile-nav'>
           <li><a href=''><MessageSharpIcon/> Wall</a></li>
           <li><a href=''><HelpIcon/> About</a></li>
-          <li><a href=''>Friends</a></li>
+          <li><a href=''><PeopleIcon/> Friends</a></li>
           <li><a href=''>Photos</a></li>
         </ul>
         <ul className='profile-friends'>
