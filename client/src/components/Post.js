@@ -166,7 +166,7 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
                 </button> 
               </li>
             }
-            <li>Comment</li>
+            {/*<li>Comment2</li>*/}
             {post.author_id === user.id ?
               <>
                 <li><DeleteIcon/><button onClick={deletePostHandler}>Delete</button></li>
