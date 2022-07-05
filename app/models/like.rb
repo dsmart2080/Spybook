@@ -13,6 +13,12 @@
 
 
 class Like < ApplicationRecord
+    validates :post_id, :likeable_type, :liker_id, presence:true
+    validates :liker_id, uniqueness: {scope: [:post_id, :likeable_type]}
+
+    #Allows for liking comment of a comment
+    belongs_to :likeable,
+      polymorphic: true
 
     belongs_to :liker,
       primary_key: :id,
