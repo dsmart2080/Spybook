@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import SearchResultsContainer from './SearchResultsContainer';
+import SearchIcon from '@mui/icons-material/Search';
 
 function SearchSpybook() {
 
@@ -31,8 +32,9 @@ function SearchSpybook() {
       <SearchResultsContainer
         displayedUsers={displayedUsers}
         searchString={searchString}
-      />
+      /> 
     </div>
+
   );
 }
 
