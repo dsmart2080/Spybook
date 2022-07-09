@@ -13,7 +13,7 @@ class Api::CommentsController < ApplicationController
     comment = Comment.find_by(id: params[:id])
     comment.destroy
     render json: comment
-  end
+  endz
 
   def update
     comment = Comment.find_by(id: params[:id])
