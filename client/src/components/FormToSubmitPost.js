@@ -31,8 +31,7 @@ function FormToSubmitPost({user, setFriendsAuthoredPostsWrapperToAddNewAuthoredP
       postFormDataWithImage.append('post_photo', event.target.post_photo.files[0], event.target.post_photo.value);
     }
 
-    //Debugger
-    debugger
+
 
     fetch('/api/posts', {
       method: 'POST',

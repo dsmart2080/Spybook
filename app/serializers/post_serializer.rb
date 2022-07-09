@@ -30,7 +30,7 @@ class PostSerializer < ActiveModel::Serializer
 
   def post_photo_url
     if self.object.post_photo.attached?
-      _helpers.url_for(self.object.post_photo)
+      Rails.application.routes.url_helpers.url_for(self.object.post_photo)
     end
   end
 
