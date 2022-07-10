@@ -10,6 +10,8 @@ import MessageSharpIcon from '@mui/icons-material/MessageSharp';
 import HelpIcon from '@mui/icons-material/Help';
 import PeopleIcon from '@mui/icons-material/People';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import IconButton from '@mui/material/IconButton';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 
 
 
@@ -284,7 +286,9 @@ function UserProfile({user, setUser}) {
             need to change it in the future if want to have image preview */}
             <input type='file' name='profile_picture' />
             <br></br>
-            <button>Update Profile Picture</button>
+            <IconButton>
+              <AddAPhotoIcon/>
+            </IconButton>
 
             <br></br>
             <br></br>

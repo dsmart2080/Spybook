@@ -7,6 +7,7 @@ import blankProfilePicture from '../images/blank_profile_picture.png';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import ReactPlayer from 'react-player';
 
 function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAuthoredPostsWrapperToRemoveAuthoredPost, setArbitraryUserWrapperToUpdateWallPost, setFriendsAuthoredPostsWrapperToUpdateAuthoredPost}) {
 
@@ -149,7 +150,15 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
         </h2>
         <p>{post.body}</p>
         {post.post_photo_url ?
-          <img src={post.post_photo_url} alt='' />
+          (post.post_photo_url.split('.').at(-1) === 'mp4' ?
+            <ReactPlayer
+              url={post.post_photo_url}
+              playing={true}
+              controls={true}
+              id='video-container'
+              width='100%'
+            />
+          : <img src={post.post_photo_url} alt='' />)
         : null}
         <footer className='post-footer'>
           <ul className='post-footer-tools'>
