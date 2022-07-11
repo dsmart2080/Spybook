@@ -8,6 +8,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ReactPlayer from 'react-player';
+import ReactAudioPlayer from 'react-audio-player';
+
 
 function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAuthoredPostsWrapperToRemoveAuthoredPost, setArbitraryUserWrapperToUpdateWallPost, setFriendsAuthoredPostsWrapperToUpdateAuthoredPost}) {
 
@@ -149,6 +151,8 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
           </Link>
         </h2>
         <p>{post.body}</p>
+
+        {/* Post Ternary statement */}
         {post.post_photo_url ?
           (post.post_photo_url.split('.').at(-1) === 'mp4' ?
             <ReactPlayer
@@ -160,6 +164,16 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
             />
           : <img src={post.post_photo_url} alt='' />)
         : null}
+        { post.post_photo_url ? 
+          (post.post_photo_url.split('.').at(-1) === 'mp3' ?
+            <ReactAudioPlayer
+              src={post.post_photo_url}
+              autoPlay
+              controls
+            /> 
+          : null)
+        : null}
+
         <footer className='post-footer'>
           <ul className='post-footer-tools'>
             {isPostLiked ? 
