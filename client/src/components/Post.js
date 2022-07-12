@@ -7,8 +7,8 @@ import blankProfilePicture from '../images/blank_profile_picture.png';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import ReactPlayer from 'react-player';
-import ReactAudioPlayer from 'react-audio-player';
+import ReactPlayer from 'react-player'; //Video Player
+import ReactAudioPlayer from 'react-audio-player'; //Audio and Music Player
 
 
 function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAuthoredPostsWrapperToRemoveAuthoredPost, setArbitraryUserWrapperToUpdateWallPost, setFriendsAuthoredPostsWrapperToUpdateAuthoredPost}) {
@@ -157,10 +157,12 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
           (post.post_photo_url.split('.').at(-1) === 'mp4' ?
             <ReactPlayer
               url={post.post_photo_url}
-              playing={true}
+              playing={false}
               controls={true}
               id='video-container'
               width='100%'
+              muted={true}
+              progressInterval={100}
             />
           : <img src={post.post_photo_url} alt='' />)
         : null}
@@ -168,7 +170,8 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
           (post.post_photo_url.split('.').at(-1) === 'mp3' ?
             <ReactAudioPlayer
               src={post.post_photo_url}
-              autoPlay
+              autoPlay={false}
+              muted={true}
               controls
             /> 
           : null)
