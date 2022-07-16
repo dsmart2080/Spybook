@@ -163,7 +163,7 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
               width='100%'
               muted={true}
               progressInterval={100}
-              {/* config is for Heroku purposes. */}
+              /* config is for Heroku purposes. */
               config={{
                 file: {
                   attributes:{
