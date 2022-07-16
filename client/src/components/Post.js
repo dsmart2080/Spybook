@@ -163,9 +163,18 @@ function Post({post, user, setArbitraryUserWrapperToRemoveWallPost, setFriendsAu
               width='100%'
               muted={true}
               progressInterval={100}
+              {/* config is for Heroku purposes. */}
+              config={{
+                file: {
+                  attributes:{
+                    crossOrigin: 'true'
+                  }
+                }
+              }}
+
             />
           : <img src={post.post_photo_url} alt='' />)
-        : null}
+        : null }
         { post.post_photo_url ? 
           (post.post_photo_url.split('.').at(-1) === 'mp3' ?
             <ReactAudioPlayer
