@@ -20,7 +20,7 @@ import './styles/comments.css';
 import './styles/FormToEditComment.css';
 import './styles/FormToSubmitComment.css';
 import './styles/HomeFeed.css';
-import './styles/SearchSpybook.css';
+import './styles/SearchSpybook.css'
 import './styles/SearchResultsContainer.css';
 
 ReactDOM.render(
